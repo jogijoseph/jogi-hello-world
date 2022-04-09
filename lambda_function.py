@@ -23,6 +23,7 @@ def lambda_handler(event, context):
     logging.info(event)
     
     try:
+        tmp_file=
         s3.Bucket(BUCKET_NAME).download_file(KEY, '/tmp/hello_local.txt')
     except botocore.exceptions.ClientError as e:
         if e.response['Error']['Code'] == "404":
@@ -34,3 +35,4 @@ def lambda_handler(event, context):
         'statusCode': 200,
         'body': json.dumps('Hello from Lambda!')
     }
+
